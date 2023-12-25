@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="title" content="Edit">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit</title>
+    <link rel="stylesheet" href="/css/edit.css">
+    <link rel="stylesheet" href="/css/globals.css">
+    <!--suppress JSUnresolvedLibraryURL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <div class="fa fa-gear" id="gear" onclick="toggleSettings()"></div>
+            </div>
+            <div>
+                <h2>NOVA</h2>
+            </div>
+            <div></div>
+        </header>
+        <div class="settings" id="settings">
+            <h1>Settings</h1>
+            <h3>Theme</h3>
+            <div class="theme-switcher" data-theme-toggle onclick="toggleTheme()">
+                <div class="fa fa-sun theme-switcher-icon"></div>
+                <div class="fa fa-moon theme-switcher-icon"></div>
+                <div class="current-theme" id="current-theme"></div>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <aside></aside>
+            <main>
+                <div class="canvas-view">
+                    <canvas id="c">Your browser needs to be updated. Seriously.</canvas>
+                </div>
+            </main>
+            <aside></aside>
+        </div>
+        <section></section>
+        <footer></footer>
+    </div>
+<script src="/js/edit.js"></script>
+</body>
+</html>
