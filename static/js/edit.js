@@ -54,11 +54,12 @@ getTheme();
 document.getElementById('theme-switcher').addEventListener('click', toggleTheme);
 document.getElementById('gear').addEventListener('click', toggleSettings);
 
-const game = await new Game(document.getElementById('c'));
+//###########################################################################################//
+
+const game = await new Game();
+
 game.objects = [
-    new GameObject2D(game, 0, 0, 20, 100),
-    new GameObject2D(game, 20, 40, 20, 20),
-    new GameObject2D(game, 40, 0, 20, 100),
-    new GameObject2D(game, 80, 0, 20, 100),
+    new GameObject2D(game, 0, 0, 50, 50, [255, 0, 255, 1])
 ];
+
 game.Run();

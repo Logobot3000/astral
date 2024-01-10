@@ -25,6 +25,9 @@ header {
 aside {
     flex: 0.2;
     background-color: var(--background-200);
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 main {

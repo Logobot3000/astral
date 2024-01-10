@@ -1,7 +1,7 @@
 export default class Game {
-    constructor(canvas) {
+    constructor() {
         return (async () => {
-            this.canvas = canvas;
+            this.canvas = document.getElementById('c');
             this.canvasView = document.querySelector('.canvas-view');
 
             this.canvas.height = this.canvasView.clientHeight;
@@ -28,6 +28,7 @@ export default class Game {
 
             this.programInfo.attributeLocations.position = this.gl.getAttribLocation(this.programInfo.program, "aPosition");
             this.programInfo.uniformLocations.resolution = this.gl.getUniformLocation(this.programInfo.program, "uResolution");
+            this.programInfo.uniformLocations.color = this.gl.getUniformLocation(this.programInfo.program, "uColor");
 
             this.buffers = {
                 position: this.gl.createBuffer()
