@@ -134,7 +134,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
     color: var(--text-950);
-    transition-duration: 1s;
+    transition-duration: 0.7s;
 }
 
 body {

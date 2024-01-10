@@ -38,4 +38,4 @@ const colors = {
     reset: '\x1b[0m',
 };
 
-module.exports = colors;
+export default colors;

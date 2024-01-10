@@ -1,3 +1,6 @@
+import Game from "./webgl/game.mjs";
+import GameObject2D from "./webgl/gameobject2d/gameobject2d.mjs";
+
 let theme = localStorage.getItem("theme");
 const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
 let activeDark = '3.6vw';
@@ -10,8 +13,6 @@ const toggleSettings = () => {
     gear.classList.remove('gear-spin');
     void gear.offsetWidth;
     gear.classList.add('gear-spin');
-
-    console.log(settings.style.left)
 
     if (settings.style.left) settings.style.left = '';
     else settings.style.left = '0';
@@ -49,3 +50,15 @@ const toggleTheme = () => {
 }
 
 getTheme();
+
+document.getElementById('theme-switcher').addEventListener('click', toggleTheme);
+document.getElementById('gear').addEventListener('click', toggleSettings);
+
+const game = await new Game(document.getElementById('c'));
+game.objects = [
+    new GameObject2D(game, 0, 0, 20, 100),
+    new GameObject2D(game, 20, 40, 20, 20),
+    new GameObject2D(game, 40, 0, 20, 100),
+    new GameObject2D(game, 80, 0, 20, 100),
+];
+game.Run();

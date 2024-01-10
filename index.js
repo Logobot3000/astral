@@ -1,12 +1,20 @@
-const express = require('express');
+import express from 'express';
 const app = express()
 const port = 3000;
 
-const crypto = require('crypto')
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-require('dotenv').config()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const colors = require('./utils/colors.js');
+import crypto from 'crypto';
+
+import * as dotenv from 'dotenv';
+
+dotenv.config()
+
+import colors from "./static/js/utils/colors.js";
 
 // Middleware
 app.use(express.static(`${__dirname}/static`));
@@ -53,5 +61,5 @@ app.get('/edit', (req, res) => {
 
 // Listen on specified port
 app.listen(port, () => {
-    console.log(`${colors.text.brightWhite}${colors.background.brightYellow}SERVER${colors.reset}${colors.text.brightYellow} The server is up and running on port ${port}.${colors.reset}`);
+    console.log(`${colors.text.white}${colors.background.brightYellow}SERVER${colors.reset}${colors.text.yellow} The server is up and running on port ${port}.${colors.reset}`);
 });
