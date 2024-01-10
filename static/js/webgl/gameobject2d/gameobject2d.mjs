@@ -10,7 +10,10 @@ export default class GameObject2D {
 
     Start = () => {}
 
-    Update = () => {
+    Update = () => {}
+
+    Loop = () => {
+        this.Update();
         this.Draw();
     }
 

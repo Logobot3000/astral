@@ -56,10 +56,38 @@ document.getElementById('gear').addEventListener('click', toggleSettings);
 
 //###########################################################################################//
 
+const rng = (min, max) => Math.random() * (max - min + 1) + min;
+
 const game = await new Game();
 
-game.objects = [
-    new GameObject2D(game, 0, 0, 50, 50, [255, 0, 255, 1])
-];
+game.objects = [];
+
+for (let i = 0; i < 1; i++) {
+    game.objects.push(new GameObject2D(game, 0, 0, 50, 50, [255, 255, 255, 1]));
+}
+
+game.Start = () => {
+    for (let obj of game.objects) {
+        let random = rng(4, 5)
+        obj.velocity = [random, random];
+        obj.Update = () => {
+            obj.x += obj.velocity[0];
+            obj.y += obj.velocity[1];
+
+            if (obj.x <= 0 || obj.x >= game.canvasView.clientWidth - 50) {
+                obj.velocity[0] *= -1;
+                obj.color = [rng(0, 255), rng(0, 255), rng(0, 255), 1];
+            }
+            if (obj.y <= 0 || obj.y >= game.canvasView.clientHeight - 50) {
+                obj.velocity[1] *= -1;
+                obj.color = [rng(0, 255), rng(0, 255), rng(0, 255), 1];
+            }
+        }
+        obj.Start = () => {
+            obj.x = rng(0, game.canvasView.clientWidth - 50);
+            obj.y = rng(0, game.canvasView.clientHeight - 50);
+        }
+    }
+}
 
 game.Run();

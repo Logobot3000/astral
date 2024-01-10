@@ -65,7 +65,7 @@ export default class Game {
         this.Update();
 
         for (let i = 0; i < this.objects.length; i++) {
-            this.objects[i].Update();
+            this.objects[i].Loop();
         }
 
         requestAnimationFrame(this.#Loop);

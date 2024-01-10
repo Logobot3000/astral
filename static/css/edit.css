@@ -111,3 +111,7 @@ footer {
 canvas {
     flex: 1;
 }
+
+body {
+    background-color: var(--background-50);
+}
